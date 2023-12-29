@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const emojiSlice = createSlice({
   name: "emoji",
@@ -18,15 +18,6 @@ const emojiSlice = createSlice({
   },
 });
 
-
-export const fetchEmojis = createAsyncThunk(
-  'emojis/fetchEmojis',
-  async () => {
-    const response = await fetch('https://raw.githubusercontent.com/cheatsnake/emojihub/master/emojistore/data/emojibase.json');
-    const data = await response.json();
-    return data;
-  }
-);
 
 
 export const { setEmojis, showByCategory } = emojiSlice.actions;
